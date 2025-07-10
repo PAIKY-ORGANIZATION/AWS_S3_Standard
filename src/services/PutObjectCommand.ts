@@ -4,16 +4,18 @@ import { s3Client } from '../lib/s3-client.js'
 
 
 
-const putObjectCommand = new PutObjectCommand({
-    Key: '',
-    Body: '',
-    Bucket: ''
-})
+export const putObjectService = async(buffer: Buffer, fileName: string, mimeType: string)=>{
+    
+    const putObjectCommand = new PutObjectCommand({
+        Key: fileName,
+        Body: buffer,
+        Bucket: process.env.AWS_BUCKET_NAME!,
+        ContentType: mimeType
+    })
 
 
-const result = await s3Client.send(putObjectCommand)
+    const result = await s3Client.send(putObjectCommand)
+    return result
+}
 
 
-
-
-console.log(result);
