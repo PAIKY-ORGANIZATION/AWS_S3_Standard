@@ -9,9 +9,12 @@ export const multerMemory = multer({
 	limits: {
 		fields: 1,
 		files: 3,
-		fileSize: 1e7, //$ 10 MB
+		fileSize: 10e6, //$ 10 MB
 	},
 });
+
+
+
 
 //% This would normally be passed to the route handler like:
 // const uploadMemory = multerMemory.single('myFieldKey'); 
