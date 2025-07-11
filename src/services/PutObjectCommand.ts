@@ -2,7 +2,13 @@ import {PutObjectCommand} from '@aws-sdk/client-s3'
 import { s3Client } from '../lib/s3-client.js'
 
 
-export const putObjectService = async(buffer: Buffer, fileName: string, mimeType: string)=>{
+type PutObjectServiceParams = {
+    buffer: Buffer,
+    fileName: string,
+    mimeType: string
+}
+
+export const putObjectService = async({buffer, fileName, mimeType}: PutObjectServiceParams)=>{
     
     const putObjectCommand = new PutObjectCommand({
         Key: fileName,

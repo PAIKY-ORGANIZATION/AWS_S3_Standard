@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { validate } from "../middleware/validateBody.js";
-import { putObjectController } from "../controllers/s3/put-object.js";
+import { putObjectSingleController } from "../controllers/s3/put-object-single.js";
 import { multerMemory } from "../middleware/multer.js";
 //*types:
 
@@ -11,6 +11,6 @@ import { multerMemory } from "../middleware/multer.js";
 export const router = Router();
 
 
-router.post('/put-object-single', multerMemory.single('myFileKey'),  validate(putObjectController) )
+router.post('/put-object-single', multerMemory.single('myFileKey'),  validate(putObjectSingleController) )
 
 
