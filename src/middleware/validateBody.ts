@@ -27,12 +27,12 @@ export const validate = (controller: ControllerFunction, schema?: AnyZodObject, 
 			} else if (e instanceof ZodError) {
 				//* Old version
 				// const messages = Object.values(e.flatten().fieldErrors).flat();
-				
+
 				//* Jul-15-2025 - New, simpler, and apparently better one. Gives the same result, less code.
 				const errorMessages = e.issues.map((issue) => issue.message);
 				
 				//* Jul-15-2025 - Here I send it in an array. But as long as you know it is a 422, you'll know how to parse it. 
-				exception = new UnprocessableEntity(errorMessages.join);
+				exception = new UnprocessableEntity(errorMessages);
 				//* Jul-15-2025 - Here I just join by a comma for the message to be only a string.
 				// exception = new UnprocessableEntity(errorMessages.join(', '));
 			} 
