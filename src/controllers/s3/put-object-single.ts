@@ -4,6 +4,8 @@ import { Request_putObjectSingleSchemaType } from '../../zodSchemas/file-schema.
 
 export const putObjectSingleController = async(req: Request, res: Response)=>{
 
+
+    //? ADD MATADATA AND HASH
     
     const file  = req.file as unknown as Request_putObjectSingleSchemaType //* We can assert this is the type if the validation went through.
 
