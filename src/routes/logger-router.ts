@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { validate } from "../middleware/validateBody.js";
+import { validate } from "../middleware/validateRequest.js";
 import { clearRequestLogs, getRequestLogs } from "../controllers/request-logs.js";
 //*types:
 

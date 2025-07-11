@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import type {Request_putObjectSingleSchemaType} from '../../zodSchemas/file-schema.js'
+import type {Request_putObjectSingleSchemaType} from '../../zodSchemas/file-schemas.js'
 import { putObjectService } from '../../services/put-object-command.js';
 
 

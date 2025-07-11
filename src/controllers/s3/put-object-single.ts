@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { putObjectService } from '../../services/put-object-command.js';
-import { Request_putObjectSingleSchemaType } from '../../zodSchemas/file-schema.js';
+import { Request_putObjectSingleSchemaType } from '../../zodSchemas/file-schemas.js';
 
 export const putObjectSingleController = async(req: Request, res: Response)=>{
 
