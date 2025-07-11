@@ -3,7 +3,7 @@ import { s3Client } from "../lib/s3-client.js"
 
 
 
-//* "Contents" will be an array like this:
+//* "objects" will be an array like this:
 //  [
 //     {
 //         "Key": "1c94e143-de48-4bc0-b629-63e53c5fcf83",
@@ -31,8 +31,16 @@ export const listObjectsService = async()=>{
         Bucket: process.env.AWS_BUCKET_NAME
     })
 
-    const {Contents} = await  s3Client.send(command)
+    const {Contents: objects} = await  s3Client.send(command)
 
-    return Contents as _Object[] | undefined
+    return objects as _Object[] | undefined
 
+}
+
+export const listObjectsURLs = async ()=>{
+    const objects: _Object[] | undefined = await listObjectsService()
+    const URLs = objects?.map((object)=>{
+        return 'https://' + process.env.AWS_BUCKET_NAME + '.s3.' + process.env.AWS_BUCKET_REGION + '.amazonaws.com/' + object.Key
+    })
+    return URLs
 }
