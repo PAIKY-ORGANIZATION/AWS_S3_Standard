@@ -6,6 +6,6 @@ import { request_putObjectSingleSchema } from "../zodSchemas/file-schema.js";
 
 export const router = Router();
 
-router.post('/put-object-single', multerMemory.single('myFieldKey'),  validate(putObjectSingleController, request_putObjectSingleSchema))
+router.post('/put-object-single', multerMemory.single('myFieldKey'),  validate(putObjectSingleController))
 
 
