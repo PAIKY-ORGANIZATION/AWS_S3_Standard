@@ -19,9 +19,7 @@ export const validate = (controller: ControllerFunction, schema?: AnyZodObject, 
 
 			next();
 		} catch (e) {
-			
 			console.log(e);
-			
 
 			let exception;
 			if (e instanceof AppError) {
