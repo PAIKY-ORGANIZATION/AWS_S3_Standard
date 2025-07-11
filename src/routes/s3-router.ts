@@ -5,16 +5,17 @@ import { uploadArrayValidated, uploadSingleValidated } from '../middleware/multe
 import { request_putObjectMultipleSchema, request_putObjectSingleSchema } from '../zodSchemas/file-schemas.js';
 import { getObjectController } from '../controllers/s3/get-object.js';
 import { putObjectMultipleFilesController } from '../controllers/s3/put-object-multiple-files.js';
-import { listAllObjectsController } from '../controllers/s3/list-all-objects.js';
+import { listAllObjectsController } from '../controllers/s3/list-objects/list-all-objects.js';
 import { deleteObjectsController } from '../controllers/s3/delete-objects.js';
+import { listAllObjectsURLs } from '../controllers/s3/list-objects/list-all-objects-urls.js';
 
 export const router = Router();
 
 
 //* PutObject
-router.post('/put-object-single', uploadSingleValidated('myFieldKey'), validate(putObjectSingleController, request_putObjectSingleSchema));
+router.put('/put-object-single', uploadSingleValidated('myFieldKey'), validate(putObjectSingleController, request_putObjectSingleSchema));
 
-router.post('/put-object-multiple', uploadArrayValidated('myFieldKey', 3), validate(putObjectMultipleFilesController, request_putObjectMultipleSchema));
+router.put('/put-object-multiple', uploadArrayValidated('myFieldKey', 3), validate(putObjectMultipleFilesController, request_putObjectMultipleSchema));
 
 
 
@@ -24,6 +25,8 @@ router.get('/get-object/:fileName', validate(getObjectController));
 
 //* ListObjects
 router.get('/list-all-objects', validate(listAllObjectsController))
+
+router.get('/list-all-objects-urls', validate(listAllObjectsURLs))
 
 //* DeleteObjects
 router.delete('/delete-all-objects', validate(deleteObjectsController))
