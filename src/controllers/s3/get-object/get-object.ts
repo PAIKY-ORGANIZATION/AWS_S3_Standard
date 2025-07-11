@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { getObjectService } from '../../services/get-object-command.js';
 import { BadRequest } from 'custom-exceptions-express';
+import { getObjectService } from '../../../services/get-object-command.js';
 
 export const getObjectController = async(req: Request<{fileName: string}>, res: Response)=>{
     const fileName = req.params.fileName
