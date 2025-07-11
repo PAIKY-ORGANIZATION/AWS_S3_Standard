@@ -9,6 +9,8 @@ export const deleteAllObjectsService = async()=>{
 
     const ObjectList = await listObjectsService()
 
+    if(!ObjectList) return 
+
     const parsedObjectList = ObjectList.map((object)=>{
         return {Key: object.Key}
     })

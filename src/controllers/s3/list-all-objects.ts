@@ -7,9 +7,9 @@ export const listAllObjectsController = async(_req: Request, res: Response)=>{
     const objectList = await listObjectsService()
 
     const response: ServerResponse = {
-        message: 'Successfully retrieved all objects.',
+        message: objectList ? 'Successfully retrieved all objects.': 'No objects found',
         success: true,
-        data: objectList
+        data: objectList || []
     }
 
     res.send(response)

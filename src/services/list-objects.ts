@@ -32,8 +32,7 @@ export const listObjectsService = async()=>{
     })
 
     const {Contents} = await  s3Client.send(command)
-    if(!Contents) return []
 
-    return Contents as _Object[]
+    return Contents as _Object[] | undefined
 
 }
