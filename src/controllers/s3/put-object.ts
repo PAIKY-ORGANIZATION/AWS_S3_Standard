@@ -1,5 +1,11 @@
 import { Request, Response } from 'express';
 
-export const putObject = async(req: Request, res: Response)=>{
+export const putObjectController = async(req: Request, res: Response)=>{
+
+
+
+
+    
+    res.send(req.file?.originalname);
     
 }
