@@ -19,7 +19,7 @@ export const putObjectSingleController = async(req: Request, res: Response)=>{
     
 
     const response: ServerResponse = {
-        message: 'Success',
+        message: 'Successfully uploaded file',
         success: true,
         data: result
     }

@@ -13,39 +13,17 @@ export const multerMemory = multer({
 	},
 });
 
-// const uploadMemory = multerMemory.single('myFieldKey'); //% This would normally be passed to the route handler like:
-//$ router.post('/put-object-single', multerMemory.single('myFieldKey'), putObjectSingleController)
+//% This would normally be passed to the route handler like:
+// const uploadMemory = multerMemory.single('myFieldKey'); 
+// router.post('/put-object-single', multerMemory.single('myFieldKey'), putObjectSingleController)
+//% But since Multer resolves errors with callbacks instead of with promises we cannot pass "uploadMemory" to validate()
 
-//¡ ADD THIS TO NOTION
-//? ADD THIS TO NOTION
-//¡ ADD THIS TO NOTION
-//? ADD THIS TO NOTION
-//¡ ADD THIS TO NOTION
-//? ADD THIS TO NOTION
-//¡ ADD THIS TO NOTION
-//? ADD THIS TO NOTION
-//¡ ADD THIS TO NOTION
-//? ADD THIS TO NOTION
-
-//% but since Multer resolves errors with callbacks instead of with promises we cannot pass "uploadMemory" to validate()
 
 //% that is why we need this call back that works with an error callback.
-export function uploadSingle(fieldName: string) {
+export function uploadSingleValidated(fieldName: string) {
 	return (req: Request, res: Response, next: NextFunction) => {
 		multerMemory.single(fieldName)(req, res, (err: any) => {
 			if (err instanceof MulterError) {
-
-                console.log(err.code);
-                console.log(err.code);
-                console.log(err.code);
-                console.log(err.code);
-                console.log(err.code);
-                console.log(err.code);
-                console.log(err.code);
-                console.log(err.code);
-                
-
-				// convert to your AppError type
 				return next(new UnprocessableEntity(err.message));
 			}
 			if (err) {
