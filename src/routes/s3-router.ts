@@ -5,6 +5,8 @@ import { multerMemory, uploadSingleValidated } from '../middleware/multer.js';
 import { request_putObjectSingleSchema } from '../zodSchemas/file-schema.js';
 import { getObjectController } from '../controllers/s3/get-object.js';
 import { putObjectMultipleFilesController } from '../controllers/s3/put-object-multiple-files.js';
+import { listAllObjectsController } from '../controllers/s3/list-all-objects.js';
+import { deleteObjectsController } from '../controllers/s3/delete-objects.js';
 
 export const router = Router();
 
@@ -18,3 +20,10 @@ router.post('/put-object-multiple', multerMemory.array('myFieldKey', 3), putObje
 
 //* GetObject
 router.get('/get-object/:fileName', validate(getObjectController));
+
+
+//* ListObjects
+router.get('/list-all-objects', validate(listAllObjectsController))
+
+//* DeleteObjects
+router.delete('/delete-all-objects', validate(deleteObjectsController))

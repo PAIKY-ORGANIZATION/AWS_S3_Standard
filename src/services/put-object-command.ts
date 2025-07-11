@@ -10,7 +10,7 @@ type PutObjectServiceParams = {
 
 export const putObjectService = async({buffer, fileName, mimeType}: PutObjectServiceParams)=>{
     
-    const putObjectCommand = new PutObjectCommand({
+    const command = new PutObjectCommand({
         Key: fileName,
         Body: buffer,
         Bucket: process.env.AWS_BUCKET_NAME!,
@@ -18,7 +18,7 @@ export const putObjectService = async({buffer, fileName, mimeType}: PutObjectSer
     })
 
 
-    const result = await s3Client.send(putObjectCommand)
+    const result = await s3Client.send(command)
     return result
 }
 
