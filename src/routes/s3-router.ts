@@ -1,14 +1,14 @@
 import { Router } from 'express';
 import { validate } from '../middleware/validateRequest.js';
-import { putObjectSingleController } from '../controllers/s3/put-object-single.js';
 import { uploadArrayValidated, uploadSingleValidated } from '../middleware/multer.js';
 import { request_putObjectMultipleSchema, request_putObjectSingleSchema } from '../zodSchemas/file-schemas.js';
-import { putObjectMultipleFilesController } from '../controllers/s3/put-object-multiple-files.js';
+import { putObjectMultipleFilesController } from '../controllers/s3/put-object/put-object-multiple-files.js';
 import { listAllObjectsController } from '../controllers/s3/list-objects/list-all-objects.js';
 import { deleteObjectsController } from '../controllers/s3/delete-objects.js';
 import { listAllObjectsURLs } from '../controllers/s3/list-objects/list-all-objects-urls.js';
 import { getObjectController } from '../controllers/s3/get-object/get-object.js';
 import { getObjectSignedURLcontroller } from '../controllers/s3/get-object/get-object-signed-url.js';
+import { putObjectSingleController } from '../controllers/s3/put-object/put-object-single.js';
 
 export const router = Router();
 
