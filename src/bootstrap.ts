@@ -19,6 +19,7 @@ const setENV = ()=>{
         "AWS_ACCESS_KEY",
         "AWS_BUCKET_NAME",
         "AWS_SECRET_ACCESS_KEY",
+        "DELETE_OBJECTS_PASSCODE"
     ];
 
     requiredVars.forEach((varName)=>{

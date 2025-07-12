@@ -25,6 +25,7 @@ jobs:
             #! If you are using Docker COMPOSE,  you don't need a unique app name for the image name. However, you still need a unique directory name.
             REPO_PATH="${{ github.repository }}"  #$ Example: # gives "dev-miguel/repo-name". We will use this to clone the repo initially 
             DOCKER_PORT="${{ secrets.DOCKER_PORTS }}"  #! I know it's not being used here
+            DELETE_OBJECTS_PASSCODE="${{ secrets.DELETE_OBJECTS_PASSCODE }}"
 
             cd ~/vsCodeMain
             #* If the is no desired-folder with .git, it means the repo doesn't exist so we clone it INTO A DESIRED FOLDER NAME.
@@ -41,6 +42,8 @@ jobs:
 
             echo "AWS_BUCKET_NAME=${{ secrets.AWS_BUCKET_NAME }}" >> ./config/shared.env #$ Same here
             echo "UNIQUE_APP_NAME=${{ secrets.UNIQUE_APP_NAME }}" >> ./config/shared.env
+
+            echo "DELETE_OBJECTS_PASSCODE=${{ secrets.DELETE_OBJECTS_PASSCODE }}" >> ./config/shared.env 
 
             #* Build and Run Docker
             #$ Docker compose works directory-wise, so this is safe as long as we are in the correct directory. No need for a unique image name.
