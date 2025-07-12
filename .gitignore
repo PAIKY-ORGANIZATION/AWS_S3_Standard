@@ -5,3 +5,4 @@ dist
 request-log.txt
 config/shared.env
 
+markdown-example.md
