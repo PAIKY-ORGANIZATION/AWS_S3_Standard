@@ -6,7 +6,7 @@ export const deleteObjectsController = async(req: Request, res: Response)=>{
 
     const passCode = req.body.passCode
 
-    if(!passCode) throw new Unauthorized('Passcode is required')
+    if(!passCode) throw new Unauthorized('"passCode" is required in the body')
 
     if(passCode !== process.env.DELETE_OBJECTS_PASSCODE) throw new Unauthorized('Passcode is incorrect')
 
