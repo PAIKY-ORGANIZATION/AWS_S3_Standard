@@ -16,8 +16,6 @@ export const putObjectMultipleFilesController = async(req: Request, res: Respons
     }
 
 
-    
-
     const response: ServerResponse = {
         message: 'Successfully uploaded all files',
         success: true,
@@ -25,3 +23,4 @@ export const putObjectMultipleFilesController = async(req: Request, res: Respons
 
     res.send(response)
 }
+

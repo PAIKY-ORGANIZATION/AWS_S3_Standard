@@ -26,7 +26,7 @@ export type Request_putObjectSingleSchemaType = z.infer< typeof request_putObjec
 
 //* Multiple Files Request (Array of files)
 export const request_putObjectMultipleSchema = z.object({
-	files: z.array(_fileSchema),
+	files: z.array(_fileSchema, {required_error: 'Files are required'}),
 });
 
 export type Request_putObjectMultipleSchema = z.infer<typeof request_putObjectMultipleSchema>['files']
