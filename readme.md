@@ -5,6 +5,7 @@
 
 [API Documentation](https://documenter.getpostman.com/view/40182356/2sB34foMGE)
 
+## How to Run
 
 ### Install dependencies:
 
