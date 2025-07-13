@@ -1,5 +1,9 @@
-# Express Startup example.
+# Using AWS S3 commands to upload, download, list, and delete files.
+## And leveraging Multer to parse form data uploads.
 
+### API Documentation:
+
+[API Documentation](https://documenter.getpostman.com/view/40182356/2sB34foMGE)
 
 
 ### Install dependencies:
@@ -29,8 +33,3 @@
 
 3. config/shared.env holds variables common to all environments.
 
-
-
-### API Documentation:
-
-[API Documentation](https://documenter.getpostman.com/view/40182356/2sB34foMGE)
