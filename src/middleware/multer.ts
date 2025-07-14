@@ -16,6 +16,10 @@ export const multerMemory = multer({
 
 
 
+
+
+
+
 //% This would normally be passed to the route handler like:
 // const uploadMemory = multerMemory.single('myFieldKey'); 
 // router.post('/put-object-single', multerMemory.single('myFieldKey'), putObjectSingleController)
@@ -42,8 +46,10 @@ export const uploadArrayValidated = (fieldName: string, maxFileCount: number)=>{
 			if(err) return next(err)
 			next()
 		})
-
 	}
-
-
 }
+
+
+
+
+
