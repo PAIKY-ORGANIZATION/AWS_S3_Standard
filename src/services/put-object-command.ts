@@ -11,6 +11,9 @@ type PutObjectServiceParams = {
 export const putObjectService = async({buffer, fileName, mimeType}: PutObjectServiceParams)=>{
     
 
+
+    
+
     const command = new PutObjectCommand({
         Key: fileName,
         Body: buffer,

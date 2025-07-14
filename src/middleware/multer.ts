@@ -37,6 +37,10 @@ export const uploadSingleValidated = (fieldName: string) => { //! the only reaso
 		});
 	};
 }
+
+
+
+
 export const uploadArrayValidated = (fieldName: string, maxFileCount: number)=>{
 
 	return (req: Request, res: Response, next: NextFunction)=>{
@@ -48,6 +52,9 @@ export const uploadArrayValidated = (fieldName: string, maxFileCount: number)=>{
 		})
 	}
 }
+
+
+
 
 
 

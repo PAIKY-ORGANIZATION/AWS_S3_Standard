@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { validate } from '../middleware/validateRequest.js';
-import { uploadArrayValidated, uploadSingleValidated } from '../middleware/multer.js';
+import {  uploadArrayValidated, uploadSingleValidated } from '../middleware/multer.js';
 import { request_putObjectMultipleSchema, request_putObjectSingleSchema } from '../zodSchemas/file-schemas.js';
 import { putObjectMultipleFilesController } from '../controllers/s3/put-object/put-object-multiple-files.js';
 import { listAllObjectsController } from '../controllers/s3/list-objects/list-all-objects.js';
@@ -31,9 +31,3 @@ router.get('/list-all-objects-urls', validate(listAllObjectsURLs))
 
 //* DeleteObjects
 router.delete('/delete-all-objects', validate(deleteObjectsController))
-
-
-
-
-
-
