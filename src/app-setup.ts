@@ -1,6 +1,6 @@
 import './bootstrap.js' // This  needs to be imported at the top in order for environment variables to be loaded successfully.
 
-import express, { RequestHandler} from 'express';
+import express from 'express';
 import { router as usersRouter } from './routes/s3-router.js';
 import { router as loggerRouter } from './routes/logger-router.js';
 import reqLoggerExpress from 'req-logger-express'
@@ -12,7 +12,7 @@ app.use(express.json());
 
 
 //Custom middleware
-app.use(reqLoggerExpress as RequestHandler)
+app.use(reqLoggerExpress('AWS_Standard_API'))
 //Routes
 app.use('/api',  usersRouter);
 app.use('/api',  loggerRouter);
