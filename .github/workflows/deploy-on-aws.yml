@@ -34,8 +34,10 @@ jobs:
             cd "$UNIQUE_APP_NAME"
             git fetch
             git merge origin/master
-    
 
+
+            rm ./config/shared.env || true #* Delete previous environment variables for safety
+            #* Set environment variables
             echo "AWS_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY }}" >> ./config/shared.env #$ will create shared.env automatically as long as the ./config directory already exists.
             echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ./config/shared.env
             echo "AWS_BUCKET_REGION=us-east-2" >> ./config/shared.env #$ This is NOT private but still the shared.env file doesn't get uploaded
@@ -59,5 +61,5 @@ jobs:
             fi
 
 
-            sudo docker compose up --build -d
+            sudo docker compose up --build -d backend #* Delete previous environment variables for safety
             
