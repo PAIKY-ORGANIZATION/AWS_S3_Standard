@@ -22,6 +22,7 @@ export const putObjectSingleController = async(req: Request, res: Response)=>{
     }
 
     
+
     res.send(response);
     
 }
