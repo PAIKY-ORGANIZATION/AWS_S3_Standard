@@ -11,9 +11,6 @@ type PutObjectServiceParams = {
 export const putObjectService = async({buffer, fileName, mimeType}: PutObjectServiceParams)=>{
     
 
-
-    
-
     const command = new PutObjectCommand({
         Key: fileName,
         Body: buffer,
@@ -25,5 +22,8 @@ export const putObjectService = async({buffer, fileName, mimeType}: PutObjectSer
     const result = await s3Client.send(command)
     return result
 }
+
+
+
 
 
